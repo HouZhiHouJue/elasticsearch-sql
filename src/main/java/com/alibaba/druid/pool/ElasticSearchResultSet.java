@@ -6,7 +6,21 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Array;
+import java.sql.Blob;
+import java.sql.Clob;
+import java.sql.Date;
+import java.sql.NClob;
+import java.sql.Ref;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.RowId;
+import java.sql.SQLException;
+import java.sql.SQLWarning;
+import java.sql.SQLXML;
+import java.sql.Statement;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -28,7 +42,6 @@ public class ElasticSearchResultSet implements ResultSet {
         this.iterator = lines.iterator();
         this.headers = headers;
         metaData = new ElasticSearchResultSetMetaDataBase(headers);
-
     }
 
     @Override
@@ -52,42 +65,42 @@ public class ElasticSearchResultSet implements ResultSet {
 
     @Override
     public String getString(int columnIndex) throws SQLException {
-        return (String) current.get(columnIndex);
+        return (String) current.get(columnIndex - 1);
     }
 
     @Override
     public boolean getBoolean(int columnIndex) throws SQLException {
-        return (Boolean) current.get(columnIndex);
+        return (Boolean) current.get(columnIndex - 1);
     }
 
     @Override
     public byte getByte(int columnIndex) throws SQLException {
-        return 0;
+        return ((Byte) current.get(columnIndex - 1));
     }
 
     @Override
     public short getShort(int columnIndex) throws SQLException {
-        return ((Short) current.get(columnIndex));
+        return ((Short) current.get(columnIndex - 1));
     }
 
     @Override
     public int getInt(int columnIndex) throws SQLException {
-        return ((Integer) current.get(columnIndex));
+        return ((Integer) current.get(columnIndex - 1));
     }
 
     @Override
     public long getLong(int columnIndex) throws SQLException {
-        return (Long) current.get(columnIndex);
+        return (Long) current.get(columnIndex - 1);
     }
 
     @Override
     public float getFloat(int columnIndex) throws SQLException {
-        return ((Float) current.get(columnIndex)).floatValue();
+        return ((Float) current.get(columnIndex - 1)).floatValue();
     }
 
     @Override
     public double getDouble(int columnIndex) throws SQLException {
-        return (Double) current.get(columnIndex);
+        return (Double) current.get(columnIndex - 1);
     }
 
     @Override
@@ -102,17 +115,17 @@ public class ElasticSearchResultSet implements ResultSet {
 
     @Override
     public Date getDate(int columnIndex) throws SQLException {
-        return (Date) current.get(columnIndex);
+        return (Date) current.get(columnIndex - 1);
     }
 
     @Override
     public Time getTime(int columnIndex) throws SQLException {
-        return (Time) current.get(columnIndex);
+        return (Time) current.get(columnIndex - 1);
     }
 
     @Override
     public Timestamp getTimestamp(int columnIndex) throws SQLException {
-        return (Timestamp) current.get(columnIndex);
+        return (Timestamp) current.get(columnIndex - 1);
     }
 
     @Override
@@ -232,7 +245,7 @@ public class ElasticSearchResultSet implements ResultSet {
 
     @Override
     public Object getObject(int columnIndex) throws SQLException {
-        return current.get(columnIndex);
+        return current.get(columnIndex - 1);
 
     }
 

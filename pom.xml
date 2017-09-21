@@ -8,47 +8,6 @@
     <description>Query elasticsearch using SQL</description>
     <name>elasticsearch-sql</name>
     <url>https://github.com/NLPchina/elasticsearch-sql/</url>
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <id>ansj</id>
-            <name>ansj</name>
-            <email>ansj-sun@163.com</email>
-        </developer>
-        <developer>
-            <id>omershelef</id>
-            <name>Omer shelef</name>
-            <email>shlaflaf@gmail.com</email>
-        </developer>
-        <developer>
-            <id>eliranmoyal</id>
-            <name>Eliran Moyal</name>
-            <email>eliran.moyal1@gmail.com</email>
-        </developer>
-    </developers>
-
-    <distributionManagement>
-        <repository>
-            <id>mvn-repo</id>
-            <url>scpexe://ansj/home/mvn-repo/ROOT</url>
-        </repository>
-    </distributionManagement>
-
-
-    <repositories>
-        <repository>
-            <id>mvn-repo</id>
-            <url>http://maven.nlpcn.org/</url>
-        </repository>
-    </repositories>
-
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
